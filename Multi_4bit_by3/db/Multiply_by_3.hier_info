@@ -1,0 +1,104 @@
+|Multiply_by_3
+S[0] <= ADDER:inst.S0
+S[1] <= ADDER:inst.S1
+S[2] <= ADDER:inst.S2
+S[3] <= ADDER:inst.S3
+S[4] <= ADDER:inst.S4
+S[5] <= ADDER:inst.S5
+CIN => ADDER:inst.CIN
+I[0] => ADDER:inst.D0[0]
+I[0] => ShiftLeft:inst7.I0
+I[1] => ADDER:inst.D0[1]
+I[1] => ShiftLeft:inst7.I1
+I[2] => ADDER:inst.D0[2]
+I[2] => ShiftLeft:inst7.I2
+I[3] => ADDER:inst.D0[3]
+I[3] => ShiftLeft:inst7.I3
+
+
+|Multiply_by_3|ADDER:inst
+S0 <= fulladder:inst.S
+D1[0] => fulladder:inst.A
+D1[1] => fulladder:inst1.A
+D1[2] => fulladder:inst2.A
+D1[3] => fulladder:inst3.A
+D1[4] => fulladder:inst4.A
+D0[0] => fulladder:inst.B
+D0[1] => fulladder:inst1.B
+D0[2] => fulladder:inst2.B
+D0[3] => fulladder:inst3.B
+CIN => fulladder:inst.Cin1
+S1 <= fulladder:inst1.S
+S2 <= fulladder:inst2.S
+S3 <= fulladder:inst3.S
+S4 <= fulladder:inst4.S
+S5 <= fulladder:inst4.Cout
+
+
+|Multiply_by_3|ADDER:inst|fulladder:inst
+S <= inst4.DB_MAX_OUTPUT_PORT_TYPE
+A => inst3.IN0
+A => inst.IN0
+B => inst3.IN1
+B => inst.IN1
+Cin1 => inst4.IN1
+Cin1 => inst1.IN1
+Cout <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Multiply_by_3|ADDER:inst|fulladder:inst1
+S <= inst4.DB_MAX_OUTPUT_PORT_TYPE
+A => inst3.IN0
+A => inst.IN0
+B => inst3.IN1
+B => inst.IN1
+Cin1 => inst4.IN1
+Cin1 => inst1.IN1
+Cout <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Multiply_by_3|ADDER:inst|fulladder:inst2
+S <= inst4.DB_MAX_OUTPUT_PORT_TYPE
+A => inst3.IN0
+A => inst.IN0
+B => inst3.IN1
+B => inst.IN1
+Cin1 => inst4.IN1
+Cin1 => inst1.IN1
+Cout <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Multiply_by_3|ADDER:inst|fulladder:inst3
+S <= inst4.DB_MAX_OUTPUT_PORT_TYPE
+A => inst3.IN0
+A => inst.IN0
+B => inst3.IN1
+B => inst.IN1
+Cin1 => inst4.IN1
+Cin1 => inst1.IN1
+Cout <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Multiply_by_3|ADDER:inst|fulladder:inst4
+S <= inst4.DB_MAX_OUTPUT_PORT_TYPE
+A => inst3.IN0
+A => inst.IN0
+B => inst3.IN1
+B => inst.IN1
+Cin1 => inst4.IN1
+Cin1 => inst1.IN1
+Cout <= inst2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Multiply_by_3|ShiftLeft:inst7
+O3 <= I2.DB_MAX_OUTPUT_PORT_TYPE
+I2 => O3.DATAIN
+O2 <= I1.DB_MAX_OUTPUT_PORT_TYPE
+I1 => O2.DATAIN
+O1 <= I0.DB_MAX_OUTPUT_PORT_TYPE
+I0 => O1.DATAIN
+O0 <= <GND>
+O4 <= I3.DB_MAX_OUTPUT_PORT_TYPE
+I3 => O4.DATAIN
+
+
